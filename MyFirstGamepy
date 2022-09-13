@@ -1,0 +1,68 @@
+import random
+l=["Goat", "Grass", "Lion"]
+('''
+Lion vs Goat -> win Lion
+Goat vs Grass -> win Goat
+Grass vs Lion -> win Grass
+''')
+while True:
+
+  ucount=0
+  Ccount=0
+
+  uc= int(input('''
+  Game start....
+  1 Yes
+  2 No|Exit
+  '''))
+
+  if uc==1:
+    for a in range(1,6):
+      userInput=int(input('''
+1 Lion
+2 Goat
+3 Grass
+      '''))
+      Cchoice=random.choice(l)
+      print("computer:-",Cchoice)
+
+      if userInput==1:
+        uchoice="Lion"
+        print("user:-",uchoice)
+
+      elif userInput==2:
+        uchoice="Goat"
+        print("user:-",uchoice)
+
+      elif userInput==3:
+        uchoice="Grass"
+        print("user:-",uchoice)
+
+      if Cchoice==uchoice:
+        print("Game Draw")
+        ucount=ucount+1
+        Ccount=Ccount+1
+
+      elif (uchoice=="Lion" and Cchoice=="Goat") or (uchoice=="Goat" and Cchoice=="Grass") or (uchoice=="Grass" and Cchoice=="Lion"):
+        print("user win")
+        ucount=ucount+1
+
+      elif(Cchoice=="Lion" and uchoice=="Goat") or (Cchoice=="Goat"and uchoice=="Grass") or (Cchoice=="Grass" and uchoice=="Lion"):
+        print("Computer win")
+        Ccount=Ccount+1
+
+    if ucount==Ccount:
+      print("Final Game draw")
+      print("user count",ucount)
+      print("computer count",Ccount)
+    elif ucount>Ccount:
+       print("Final Game user win",ucount)
+       print("user count",ucount)
+       print("computer count",Ccount)
+    elif Ccount>ucount:
+      print("Final Game computer Win", Ccount)
+      print("user count",ucount)
+      print("computer count",Ccount)
+
+  else:
+    break
